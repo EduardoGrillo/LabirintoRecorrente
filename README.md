@@ -14,6 +14,8 @@ Agora que produzimos um trabalho de aquecimento que envolve o caminhamento de ma
 
 Qual o custo computacional da sua estratégia randômica? Se mostrou uma boa alternativa de execução?
 
+# O Algoritmo
+
 # Compilação e Execução
 
 O algoritmo disponibilizado possui um arquivo Makefile que realiza todo o procedimento de compilação e execução. Para tanto, temos as seguintes diretrizes de execução:
