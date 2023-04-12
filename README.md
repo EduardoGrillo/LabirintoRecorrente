@@ -2,17 +2,17 @@
 
 O objetivo do trabalho é fazer um jogo na qual consiste que um personagem percorra um labirinto construído por diversas matrizes, das quais possui as seguintes regras:
 - O jogo termina quando o personagem perde toda a vida (possui um total de 10 de vida).
-- Possui paredes durante o caminho que são representadas por ‘#’, que são locais onde o personagem não pode caminhar.
-- Possui caminhos chamados de perigo, representados por ‘*’, que são locais onde o personagem perde uma vida cada vez que passa por ele.
+- Possui paredes durante o caminho que são representadas por ```#```, que são locais onde o personagem não pode caminhar.
+- Possui caminhos chamados de perigo, representados por ```*```, que são locais onde o personagem perde uma vida cada vez que passa por ele.
 
 # O Algoritmo
 
 
+# Custo Computacional
 
+- Qual o custo computacional da sua estratégia randômica? 
 
-```Qual o custo computacional da sua estratégia randômica? ```
-
-```Se mostrou uma boa alternativa de execução?```
+- Se mostrou uma boa alternativa de execução?
 
 # Compilação e Execução
 
