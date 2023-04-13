@@ -20,6 +20,16 @@ O (grande O): O gráfico de O representa o pior caso do algoritmo ou estrutura d
 
 Θ (teta): O gráfico de Θ representa o caso médio do algoritmo ou estrutura de dados. Ele estabelece um limite justo para o tempo de execução do algoritmo ou tempo de acesso para a estrutura de dados. Isso significa que, para entradas de tamanho moderado, o tempo de execução ou tempo de acesso será igual ao limite estabelecido por Θ. O gráfico de Θ é usado para identificar algoritmos ou estruturas de dados que são adequados para entradas moderadas.
 
+</p>
+
+<p align="center">
+<img src="images/" width="600"/>
+</p>
+<p align="center">
+<em>Imagem 1: Representação gráfica dos três casos. </em>
+
+</p>
+
 - Qual o custo computacional da sua estratégia randômica? 
 
 - Se mostrou uma boa alternativa de execução?
