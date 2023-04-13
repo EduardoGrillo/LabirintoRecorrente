@@ -29,11 +29,3 @@ O algoritmo disponibilizado possui um arquivo Makefile que realiza todo o proced
 |  `make run`            | Executa o programa da pasta build após a realização da compilação                                 |
 
 </div>
-
-# Contato
-
-<div>
-<p align="justify"> Eduardo da Silva Torres Grillo </p>
-<a href="https://t.me/eduardogrilloo">
-<img align="center" src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white"/> 
-</div>
