@@ -6,13 +6,23 @@ O objetivo do trabalho é fazer um jogo na qual consiste que um personagem perco
 - Possui caminhos chamados de perigo, representados por ```*```, que são locais onde o personagem perde uma vida cada vez que passa por ele.
 
 # O Algoritmo
+```INPUT```
 
+```OUTPUT```
 
 # Custo Computacional
 
 Para avaliar o custo computacional de um algoritmo ou estrutura de dados, é comum usar a notação assintótica, que descreve a complexidade em termos de como ela cresce em relação ao tamanho dos dados de entrada. As notações mais comuns são O (grande O), Ω (ômega) e Θ (teta). Por exemplo, um algoritmo O(n^2) significa que o tempo de execução cresce quadráticamente em relação ao tamanho dos dados de entrada (n). Já um algoritmo O(nlogn) significa que o tempo de execução cresce logaritmicamente em relação ao tamanho dos dados de entrada.
 
-- Representação gr
+
+<p align="center">
+<img src="images/grafico.png" width="600"/>
+</p>
+<p align="center">
+<em>Imagem 1: Tabela dos casos de MinMax1, MinMax2 e MinMax3. </em>
+
+</p>
+
 
 O (grande O): O gráfico de O representa o pior caso do algoritmo ou estrutura de dados. Ele estabelece um limite superior de tempo de execução para o algoritmo ou tempo de acesso para a estrutura de dados. Isso significa que, para entradas maiores, o tempo de execução ou tempo de acesso nunca excederá o limite superior estabelecido por O. O gráfico de O cresce rapidamente e pode ser usado para identificar algoritmos ou estruturas de dados que não são adequados para grandes entradas.
 
@@ -26,7 +36,7 @@ O (grande O): O gráfico de O representa o pior caso do algoritmo ou estrutura d
 <img src="images/grafico.png" width="600"/>
 </p>
 <p align="center">
-<em>Imagem 1: Representação gráfica dos três casos. </em>
+<em>Imagem 2: Representação gráfica dos três casos. </em>
 
 </p>
 
