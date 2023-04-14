@@ -16,7 +16,7 @@ Para avaliar o custo computacional de um algoritmo ou estrutura de dados, é com
 
 
 <p align="center">
-<img src="images/grafico.png" width="600"/>
+<img src="images/maxmin.png" width="600"/>
 </p>
 <p align="center">
 <em>Imagem 1: Tabela dos casos de MinMax1, MinMax2 e MinMax3. </em>
