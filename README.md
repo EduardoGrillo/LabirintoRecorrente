@@ -12,7 +12,7 @@ O objetivo do trabalho é fazer um jogo na qual consiste que um personagem perco
 
 # Custo Computacional
 
-Para avaliar o custo computacional de um algoritmo ou estrutura de dados, é comum usar a notação assintótica, que descreve a complexidade em termos de como ela cresce em relação ao tamanho dos dados de entrada. As notações mais comuns são O (grande O), Ω (ômega) e Θ (teta). Por exemplo, um algoritmo O(n^2) significa que o tempo de execução cresce quadráticamente em relação ao tamanho dos dados de entrada (n). Já um algoritmo O(nlogn) significa que o tempo de execução cresce logaritmicamente em relação ao tamanho dos dados de entrada.
+Para avaliar o custo computacional de um algoritmo ou estrutura de dados, é comum usar a notação assintótica, que descreve a complexidade em termos de como ela cresce em relação ao tamanho dos dados de entrada. As notações mais comuns são O (grande O), Ω (ômega) e Θ (teta). Por exemplo, um algoritmo O(n²) significa que o tempo de execução cresce quadráticamente em relação ao tamanho dos dados de entrada (n). Já um algoritmo O(nlogn) significa que o tempo de execução cresce logaritmicamente em relação ao tamanho dos dados de entrada.
 
 
 <p align="center">
@@ -23,12 +23,8 @@ Para avaliar o custo computacional de um algoritmo ou estrutura de dados, é com
 
 </p>
 
-
-O (grande O): O gráfico de O representa o pior caso do algoritmo ou estrutura de dados. Ele estabelece um limite superior de tempo de execução para o algoritmo ou tempo de acesso para a estrutura de dados. Isso significa que, para entradas maiores, o tempo de execução ou tempo de acesso nunca excederá o limite superior estabelecido por O. O gráfico de O cresce rapidamente e pode ser usado para identificar algoritmos ou estruturas de dados que não são adequados para grandes entradas.
-
-Ω (ômega): O gráfico de Ω representa o melhor caso do algoritmo ou estrutura de dados. Ele estabelece um limite inferior para o tempo de execução do algoritmo ou tempo de acesso para a estrutura de dados. Isso significa que, para entradas menores, o tempo de execução ou tempo de acesso nunca será menor do que o limite inferior estabelecido por Ω. O gráfico de Ω é usado para identificar algoritmos ou estruturas de dados que são adequados para entradas pequenas.
-
-Θ (teta): O gráfico de Θ representa o caso médio do algoritmo ou estrutura de dados. Ele estabelece um limite justo para o tempo de execução do algoritmo ou tempo de acesso para a estrutura de dados. Isso significa que, para entradas de tamanho moderado, o tempo de execução ou tempo de acesso será igual ao limite estabelecido por Θ. O gráfico de Θ é usado para identificar algoritmos ou estruturas de dados que são adequados para entradas moderadas.
+Outra maneira de identificar os custos computacionais das notações assintóticas, é a representação gráfica, apresentada na imagem 2.
+Em resumo, ```O (grande O)```, no gráfico, representa o pior caso. Isso ocorre porque ele estabelece um limite superior de tempo de execução para o algoritmo. Isso significa que, para entradas maiores, o tempo de execução ou tempo de acesso nunca excederá o limite superior estabelecido por O. Para o ```Ω (ômega)```, é representado o melhor caso. Ele estabelece um limite inferior para o tempo de execução do algoritmo. Isso significa que, para entradas menores, o tempo de execução ou tempo de acesso nunca será menor do que o limite inferior estabelecido por Ω. Por último, o ```Θ (teta)``` representa o caso médio. Ele estabelece um limite justo para o tempo de execução do algoritmo. Isso significa que, para entradas de tamanho moderado, o tempo de execução ou tempo de acesso será igual ao limite estabelecido por Θ. 
 
 </p>
 
