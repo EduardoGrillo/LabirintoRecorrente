@@ -1,9 +1,12 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#ifndef _MENINO_H
+#define _MENINO_H
+
+typedef struct infoMenino infoMenino;
 
 struct infoMenino{
-    int vida = 10;
-    char item;
+    int vida;
+    int item;
+    int sacola;
 };
 
+#endif

@@ -1,9 +1,15 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#ifndef _MATRIZ_H
+#define _MATRIZ_H
+
+typedef struct readMatriz readMatriz;
 
 struct readMatriz{
     int linha, coluna;
-    int q; //a letra q representa quantidade
-    int armazenarM;
+    int q; //letra q representa quantidade
+    int **mat;
+    int matrizAtual;
 };
+
+
+
+#endif
