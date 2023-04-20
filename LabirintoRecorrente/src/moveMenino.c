@@ -1,12 +1,6 @@
 #include "moveMenino.h"
 
 void Move(readMatriz*matriz, infoMenino*menino){
-    // for(int i = 0; i <  matriz->linha; i++){
-    //     for(int j = 0; j <  matriz->coluna; j++){
-
-    //     }
-    // }
-
     srand(time(NULL));
     
     int posicao;

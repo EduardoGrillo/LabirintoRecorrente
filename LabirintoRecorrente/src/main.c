@@ -6,6 +6,7 @@ int main(){
     readMatriz matriz;
 
     tamanho(&matriz.linha, &matriz.coluna, &matriz.q);
+    printf("valores: %d, %d, %d\n", matriz.linha, matriz.coluna, matriz.q);
 
     matriz.mat = (int**)malloc(sizeof(int*) * matriz.linha); //alocando as linhas da matriz
     
@@ -13,7 +14,8 @@ int main(){
         matriz.mat[i] = (int*)malloc(sizeof(int) * matriz.coluna);
     }
 
-    leitura(matriz.mat, 0);
+    leitura(&matriz, matriz.linha);
+    printMatriz(&matriz);
 
 
     return 0;

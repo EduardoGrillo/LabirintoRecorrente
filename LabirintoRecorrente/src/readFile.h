@@ -5,13 +5,42 @@
 #include <stdlib.h>
 #include <string.h>
 
-void leitura(int**m, int t) {
+void checkpoint(readMatriz*matriz){
+    //o arquivo gerado para o checkpoint chama-se backup_1.data
+
+    char *p = (char*)malloc(sizeof(char) * 100);
+    sprintf(p, "dataset/checkpoint/checkpoint_%d.input", matriz->matrizAtual);
+
+    FILE *file = fopen(p, "w");
+    //int cont = 0;
+	char *result, linha_str[100];
+
+	if (file == NULL) {
+		printf("Nao foi possivel abrir o arquivo\n");
+	} else {
+        fprintf(file, "%d %d %d\n", matriz->linha, matriz->coluna, 1);
+        
+        for(int i = 0; i <  matriz->linha; i++){
+            for(int j = 0; j <  matriz->coluna; j++){
+                fprintf(file, "%2d ", matriz->mat[i][j]);
+            }
+            
+            fprintf(file, "\n");
+        }
+	}
+	fclose(file);
+}
+
+void leitura(readMatriz*matriz, int t) {
 	FILE *file = fopen("dataset/input.data", "r");
 
 	char *result, linha[100];
     
     int cont = 0;
+    int contMatrizAtual = 1;
+
     int convert, coluna;
+    
     int aux = 0;
     int aux2 = 0;
 
@@ -30,33 +59,41 @@ void leitura(int**m, int t) {
                     tokens = strtok(linha, sep);
 
                     while (tokens != NULL) {
-                        convert = atoi(tokens);
-                        m[cont][coluna] = convert;
+                        if(strcmp(tokens, "#") == 0){
+                            convert = -1;
+                        } else if(strcmp(tokens, "*") == 0){
+                            convert = -2;
+                        } else {
+                            convert = atoi(tokens);
+                        }
+                        matriz->mat[cont][coluna] = convert;
                         tokens = strtok(NULL, sep);
 
+                        //printf("convert: %d\n", convert);
                         coluna++;
-                    }
-                    cont++;
+                        cont++;
 
-                    if(cont == t){
-                        // for(int i = 0;i < t;i++){
-                        //     for(int j = 0;j < t;j++){
-                        //         printf("%d ", m[i][j]);
-                        //     }
-                        //     printf("\n");
-                        // }
-                        // printf("\n");
+                        //printf("teste: %d %d\n", cont, t);
 
-                        // for(int i = 0;i < t;i++){
-                        //     for(int j = 0;j < t;j++){
-                        //         printf("%d ", m[i][j]);
-                        //     }
-                        //     printf("\n");
-                        // }
-                        // printf("\n");
+                        if(cont == t){
+                            matriz->matrizAtual = contMatrizAtual;
+                            
+                            checkpoint(matriz);
+                            
+                            contMatrizAtual++;
+                            cont = 0;
+                        }
                     }
+                    
                 } else {
-                    cont = 0;
+                    if(cont == t){
+                        matriz->matrizAtual = contMatrizAtual;
+                        
+                        checkpoint(matriz);
+                            
+                        contMatrizAtual++;
+                        cont = 0;
+                    }
                 }
 			}
             aux = 1;
@@ -83,8 +120,6 @@ void tamanho(int *linha, int *coluna, int *total){
                 tokens = strtok(linha_str, sep);
 
                 while (tokens != NULL) {
-                    // fclose(file);
-                    // return atoi(tokens);
                     if(cont == 0){
                         (*linha) = atoi(tokens);
                     } else if(cont == 1){
@@ -94,6 +129,8 @@ void tamanho(int *linha, int *coluna, int *total){
                     }
 
                     tokens = strtok(NULL, sep);
+
+                    cont++;
                 }
 			}
 		}

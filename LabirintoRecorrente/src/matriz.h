@@ -1,6 +1,8 @@
 #ifndef _MATRIZ_H
 #define _MATRIZ_H
 
+#include <stdio.h>
+
 typedef struct readMatriz readMatriz;
 
 struct readMatriz{
@@ -10,6 +12,6 @@ struct readMatriz{
     int matrizAtual;
 };
 
-
+void printMatriz(readMatriz*matriz);
 
 #endif
