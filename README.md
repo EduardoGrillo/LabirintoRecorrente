@@ -41,6 +41,8 @@ Em resumo, ```O (grande O)```, no gráfico, representa o pior caso. Isso ocorre 
 
 </p>
 
+#Conclusão
+
 - Qual o custo computacional da sua estratégia randômica? 
 
 - Se mostrou uma boa alternativa de execução?
