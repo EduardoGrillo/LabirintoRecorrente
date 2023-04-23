@@ -10,7 +10,23 @@ O objetivo do trabalho é fazer um jogo na qual consiste que um personagem perco
 
 - Introdução 
 
+O algoritmo consiste na leitura de três matrizes que formam o labirinto que será percorrido. A ideia principal é de que o personagem consiga todas as matrizes até que o jogo acabe. 
+
+Além das regras propostas pelo trabalho, foi incrementado outras regras, das quais são elas: (a) existem um portal do lado esquerdo e direito; (b) o loop só vai parar quando o personagem morrer; (c) o jogo vai acabar quando o personagem percorrer todas as matrizes; (c) o personagem só avançará para a próxima matriz quando avançar pelos portais ou quando bater na parede, que será jogado automaticamente para outra matriz.
+
+</p>
+
+<p align="center">
+<img src="images/input.png" width="300"/>
+</p>
+<p align="center">
+<em>Imagem 1: Labirinto formado por matrizes. </em>
+
+</p>
+
 - Lógica
+
+
 
 ```OUTPUT```
 
@@ -24,11 +40,13 @@ Já o algoritmo ```MaxMin2``` utiliza a técnica de divisão e conquista, onde d
 Por fim, o algoritmo ```MaxMin3``` utiliza um método de pares, onde os elementos do conjunto são agrupados em pares, o máximo e mínimo de cada par são comparados e o maior e menor valor é comparado com o máximo e mínimo globais. Seu custo computacional também é de O(n).
 No melhor caso, todos os algoritmos têm o mesmo desempenho, pois é necessário percorrer todo o conjunto para encontrar o máximo e mínimo. No pior caso, o algoritmo MaxMin2 é o mais eficiente, pois seu custo computacional é menor que o dos outros algoritmos. No caso médio, o algoritmo MaxMin3 é o mais eficiente, pois tem um custo computacional constante em relação ao tamanho do conjunto.
 
+</p>
+
 <p align="center">
 <img src="images/maxmin.png" width="600"/>
 </p>
 <p align="center">
-<em>Imagem 1: Tabela dos casos de MinMax1, MinMax2 e MinMax3. </em>
+<em>Imagem 2: Tabela dos casos de MinMax1, MinMax2 e MinMax3. </em>
 
 </p>
 
@@ -41,7 +59,7 @@ Em resumo, ```O (grande O)```, no gráfico, representa o pior caso. Isso ocorre 
 <img src="images/grafico.png" width="600"/>
 </p>
 <p align="center">
-<em>Imagem 2: Representação gráfica dos três casos. </em>
+<em>Imagem 3: Representação gráfica dos três casos. </em>
 
 </p>
 
