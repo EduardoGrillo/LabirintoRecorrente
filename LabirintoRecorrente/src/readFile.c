@@ -27,7 +27,7 @@ void fazCopia(copiaCheckpoint *matriz) {
 
 //Função responsável por fazer o backup do arquivo das matrizes originais (input.data).
 void checkpoint(readMatriz *matriz) {
-    //o arquivo gerado para o checkpoint chama-se output_1.data
+    //o arquivo gerado para o checkpoint chama-se output_1.data;
     
     char *p = (char *)malloc(sizeof(char) * 100);
     sprintf(p, "dataset/checkpoint/checkpoint_%d.data", matriz->matrizAtual);
