@@ -10,7 +10,7 @@ void fazCopia(copiaCheckpoint *matriz) {
     FILE *file = fopen(p, "w");
 
     if (file == NULL) {
-        printf("Nao foi possivel abrir o arquivo  FAZCOPIA\n");
+        printf("Nao foi possivel abrir o arquivo\n");
     } else {
         fprintf(file, "%d %d %d\n", matriz->linha, matriz->coluna, 1);
 
@@ -35,7 +35,7 @@ void checkpoint(readMatriz *matriz) {
     FILE *file = fopen(p, "w");
 
     if (file == NULL) {
-        printf("Nao foi possivel abrir o arquivo CHECK\n");
+        printf("Nao foi possivel abrir o arquivo\n");
     } else {
         fprintf(file, "%d %d %d\n", matriz->linha, matriz->coluna, 1);
 
@@ -71,7 +71,7 @@ void leitura(readMatriz *matriz, int t, copiaCheckpoint *copia) {
     copia->matrizAtual = 1;
 
     if (file == NULL) {
-        printf("Nao foi possivel abrir o arquivo LEITURA\n");
+        printf("Nao foi possivel abrir o arquivo\n");
     } else {
         while (!feof(file)) {
             result = fgets(linha, sizeof(linha), file);
@@ -136,7 +136,7 @@ void readCheckpoint(readMatriz *matriz) {
     tamanho(&matriz->linha, &matriz->coluna, &matriz->q);
 
     if (file == NULL) {
-        printf("Nao foi possivel abrir o arquivo READCHECK\n");
+        printf("Nao foi possivel abrir o arquivo\n");
     } else {
         while (!feof(file)) {
             result = fgets(linha, sizeof(linha), file);
@@ -182,7 +182,7 @@ void readCopiaCheckpoint(copiaCheckpoint *matriz) {
     tamanho(&matriz->linha, &matriz->coluna, &matriz->q);
 
     if (file == NULL) {
-        printf("Nao foi possivel abrir o arquivo READCOPIACHECK\n");
+        printf("Nao foi possivel abrir o arquivo\n");
     } else {
         while (!feof(file)) {
             result = fgets(linha, sizeof(linha), file);
@@ -217,7 +217,7 @@ void tamanho(int *linha, int *coluna, int *total) {
     char *result, linha_str[MAX];
 
     if (file == NULL) {
-        printf("Nao foi possivel abrir o arquivo TAMANHO\n");
+        printf("Nao foi possivel abrir o arquivo\n");
     } else {
         while (!feof(file)) {
             result = fgets(linha_str, sizeof(linha_str), file);
@@ -252,7 +252,7 @@ void output(int x, int y, readMatriz*matriz){
     FILE *file = fopen("dataset/output.data", "a");
 
     if (file == NULL) {
-        printf("Nao foi possivel abrir o arquivo OUTPUT\n");
+        printf("Nao foi possivel abrir o arquivo\n");
     } else {
         fprintf(file, "matriz atual: %d\n", matriz->matrizAtual);
         fprintf(file, "coordenadas: [%d] x [%d]\n", x, y);
@@ -284,7 +284,7 @@ void relatorio(infoMenino*menino){
     FILE *file = fopen("dataset/relatorio.data", "w");
 
     if (file == NULL) {
-        printf("Nao foi possivel abrir o arquivo RELATORIO\n");
+        printf("Nao foi possivel abrir o arquivo\n");
     } else {
         int caminhoPercorrido=0, caminhoNaoPercorrido=0;
 
@@ -323,7 +323,7 @@ void readMatrizPercorrida(int *caminhoPercorrido, int *caminhoNaoPercorrido, int
         int aux = 0;
 
         if (file == NULL) {
-            printf("Nao foi possivel abrir o arquivo readMatrizPercorrida\n");
+            printf("Nao foi possivel abrir o arquivo\n");
         } else {
             while (!feof(file)) {
                 result = fgets(linha, sizeof(linha), file);
