@@ -12,25 +12,9 @@ A proposta do trabalho consiste na leitura de três matrizes que formam o labiri
 
 Além das regras propostas pelo trabalho, foi incrementado outras regras, das quais são elas: (a) existem um portal do lado esquerdo e direito; (b) o loop só vai parar quando o personagem morrer; (c) o jogo vai acabar quando o personagem percorrer todas as matrizes; (c) o personagem só avançará para a próxima matriz quando avançar pelos portais ou quando bater na parede, que será jogado automaticamente para outra matriz.
 
-O input do algoritmo consiste em fazer, primeiramente, a leitura das matrizes que formam o labirinto. Após a leitura do arquivo, existem outras funções necessárias para atender os requisitos do trabalho. Abaixo estão as funções utilizadas para fazer tal verificação:
+A função leitura é responsável pela leitura do arquivo de entrada e pela criação do arquivo de saída. O arquivo de entrada é aberto em modo leitura e o de saída em modo escrita. Após isso, o programa lê cada linha do arquivo de entrada e, a partir da segunda linha, realiza a separação de cada palavra (número) da linha utilizando um separador```" "```. O código converte a palavra lida para um número inteiro e armazena na matriz de entrada. Caso a palavra lida seja igual a ```*``` ou ```#```, o código identifica que se trata de um obstáculo ou perigo, respectivamente. Ao fim da leitura de cada linha, caso a matriz tenha sido totalmente lida, o código chama a função checkpoint para salvar o estado atual da matriz no arquivo de checkpoint e a função fazCopia para salvar uma cópia do arquivo de checkpoint.
 
-- ```void fazCopia(copiaCheckpoint *matriz):``` Função responsável por fazer a cópia da matriz do checkpoint, mantendo as paredes e os perigos existentes. Inicialmente, para indicar se o garoto não passou pelo caminho, o valor será igual a zero. Caso tenha passado pelo caminho, o valor será igual a 1 e, então, mudará o arquivo cópia.
-
-- ```void checkpoint(readMatriz *matriz):``` Função responsável por fazer o backup do arquivo das matrizes originais (input.data). 
-
-- ```void leitura(readMatriz *matriz, int t, copiaCheckpoint *copia):``` Função responsável para fazer a leitura do arquivo original (input.data). Também faz a conversão dos símbolos de parede (#) e perigo (*) para -1 e -2, respectivamente. Essa conversão será exibida no arquivo do checkpoint, arquivo do qual será editado sempre que o algoritmo for compilado.
-
-- ```void readCheckpoint(readMatriz *matriz):``` Função responsável por fazer o checkpoint da matriz original, na qual irá ser criado três arquivos, cada um desses arquivos contendo a alteração da matriz original e salvando-a.
-
-- ```void readCopiaCheckpoint(copiaCheckpoint *matriz): ``` Função responsável por fazer a leitura da cópia do checkpoint. Ou seja, irá abrir o arquivo contendo todas as informações copiadas.
-
-- ```void tamanho(int *linha, int *coluna, int *total): ``` Função responsável para definir o tamanho da matriz.
-
-- ```void output(int x, int y, readMatriz*matriz): ``` Função responsável para a criação de outro arquivo na qual mostrará o caminho impresso percorrido pelo menino.
-
-- ```void relatorio(infoMenino*menino): ``` Função responsável apenas para mostrar as informações do menino, na qual ao final do processo, será impresso o resultado de todo o caminho percorrido.
-
-- ```void readMatrizPercorrida(int *caminhoPercorrido, int *caminhoNaoPercorrido, int quantMatriz):```  Função responsável para mostrar se o garoto percorreu o caminho ou não. Para tal, foi criada uma condição para verificar, onde se o convert (variável encarregada da tokenização) for igual a zero, então o caminho não foi percorrido. Se o convert for igual a 1, o caminho será percorrido.
+Em resumo, o código lê um arquivo de entrada contendo uma matriz e salva o estado atual da matriz em um arquivo de checkpoint. A partir do arquivo de checkpoint, o programa cria uma cópia da matriz para salvar o caminho percorrido pelo usuário, caso exista.
 
 Para fazer a movimentação do menino, foi utilizada uma estrutura de switch, onde cada case, de 1 até o 8, representa um lado para qual ele irá de mover, de forma randômica. 
 
