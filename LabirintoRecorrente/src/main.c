@@ -20,8 +20,6 @@ int main(){
 
     jogador.q = matriz.q;
     
-    //printf("valores: %d, %d, %d\n", matriz.linha, matriz.coluna, matriz.q);
-
     matriz.mat = (int**)malloc(sizeof(int*) * matriz.linha); //alocando as linhas da matriz
     copia.mat = (int**)malloc(sizeof(int*) * copia.linha); //alocando as linhas da matriz
     
@@ -32,8 +30,6 @@ int main(){
 
     leitura(&matriz, matriz.linha, &copia);
     
-    //printMatriz(&matriz);
-
     matriz.matrizAtual = 1; 
     copia.matrizAtual = 1;   
     
