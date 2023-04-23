@@ -15,8 +15,6 @@ void Move(readMatriz*matriz, infoMenino*menino, copiaCheckpoint*copia){
     while(true){
         posicao = 1+rand() % 8;
         
-        //printf("Matriz Atual: %d\n", matriz->matrizAtual);
-
         x_aux = x_atual;
         y_aux = y_atual;
 
@@ -55,9 +53,7 @@ void Move(readMatriz*matriz, infoMenino*menino, copiaCheckpoint*copia){
             
             output(x_atual, y_atual, matriz);
         } else {
-            //printf("testando aqui: %d\n", matriz->matrizAtual);
             if(teleporte == 1){ //teleporte vai para direita
-                //printf("matriz atual antes: %d\n", matriz->matrizAtual);
                 checkpoint(matriz);
                 fazCopia(copia);
 
@@ -69,7 +65,6 @@ void Move(readMatriz*matriz, infoMenino*menino, copiaCheckpoint*copia){
                 copia->matrizAtual=matriz->matrizAtual;
                 readCopiaCheckpoint(copia);
                 readCheckpoint(matriz);
-                //printf("matriz atual depois: %d\n", matriz->matrizAtual);
             } else if(teleporte == 2){ //teleporte vai para esquerda
                 checkpoint(matriz);
                 fazCopia(copia);
