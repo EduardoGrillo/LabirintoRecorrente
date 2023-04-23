@@ -1,6 +1,6 @@
 #include "moveMenino.h"
 
-void Move(readMatriz*matriz, infoMenino*menino){
+void Move(readMatriz*matriz, infoMenino*menino, copiaCheckpoint*copia){
     srand(time(NULL));
     
     int posicao;
@@ -15,6 +15,8 @@ void Move(readMatriz*matriz, infoMenino*menino){
     while(true){
         posicao = 1+rand() % 8;
         
+        //printf("Matriz Atual: %d\n", matriz->matrizAtual);
+
         x_aux = x_atual;
         y_aux = y_atual;
 
@@ -27,13 +29,16 @@ void Move(readMatriz*matriz, infoMenino*menino){
                 y_atual = y_aux;
             } else if(matriz->mat[x_atual][y_atual] == -2){
                 menino->vida--;
-                menino->sacola = 0; 
+                menino->sacola = 0;
+                menino->perigo++; 
                 
                 if(menino->vida == 0){
-                    printf("GAME OVER!\n");
-                    exit(0);
+                    menino->status = 0;
+                    return;
                 }
-            } 
+            } else {
+                copia->mat[x_aux][y_aux] = 1;
+            }
             if(matriz->mat[x_aux][y_aux] > 0){
                 matriz->mat[x_aux][y_aux]--;
                 menino->item++;
@@ -47,19 +52,37 @@ void Move(readMatriz*matriz, infoMenino*menino){
                     menino->sacola = 0;
                 }
             }
+            
+            output(x_atual, y_atual, matriz);
         } else {
+            //printf("testando aqui: %d\n", matriz->matrizAtual);
             if(teleporte == 1){ //teleporte vai para direita
-                if(matriz->matrizAtual == matriz->q){ 
+                //printf("matriz atual antes: %d\n", matriz->matrizAtual);
+                checkpoint(matriz);
+                fazCopia(copia);
+
+                if(matriz->matrizAtual == menino->q){ 
                     matriz->matrizAtual = 1; 
                 } else{
                     matriz->matrizAtual++;
                 }
+                copia->matrizAtual=matriz->matrizAtual;
+                readCopiaCheckpoint(copia);
+                readCheckpoint(matriz);
+                //printf("matriz atual depois: %d\n", matriz->matrizAtual);
             } else if(teleporte == 2){ //teleporte vai para esquerda
+                checkpoint(matriz);
+                fazCopia(copia);
+
                 if(matriz->matrizAtual == 1){
-                    matriz->matrizAtual = matriz->q;
+                    matriz->matrizAtual = menino->q;
                 } else{
                     matriz->matrizAtual--;
                 }
+                
+                copia->matrizAtual=matriz->matrizAtual;
+                readCopiaCheckpoint(copia);
+                readCheckpoint(matriz);
             }
 
             teleporte = 0;

@@ -7,6 +7,9 @@ struct infoMenino{
     int vida;
     int item;
     int sacola;
+    int perigo;
+    int status;
+    int q;
 };
 
 #endif

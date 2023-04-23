@@ -3,13 +3,14 @@
 
 #include "menino.h"
 #include "matriz.h"
+#include "readFile.h"
 
 #include <stdbool.h>
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
 
-void Move(readMatriz*matriz, infoMenino*menino);
+void Move(readMatriz*matriz, infoMenino*menino, copiaCheckpoint*copia);
 void Movimentar(int *x, int *y, int posicao, int *teleporte, int linha, int coluna);
 
 #endif

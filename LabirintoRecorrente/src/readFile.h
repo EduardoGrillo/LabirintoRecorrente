@@ -5,169 +5,19 @@
 #include <stdlib.h>
 #include <string.h>
 
-void checkpoint(readMatriz *matriz) {
-    //o arquivo gerado para o checkpoint chama-se output_1.data
+#include "matriz.h"
+#include "menino.h"
 
-    char *p = (char *)malloc(sizeof(char) * 100);
-    sprintf(p, "dataset/checkpoint/checkpoint_%d.data", matriz->matrizAtual);
+#define MAX 100
 
-    FILE *file = fopen(p, "w");
-    //int cont = 0;
-    char *result, linha_str[100];
-
-    if (file == NULL) {
-        printf("Nao foi possivel abrir o arquivo\n");
-    } else {
-        fprintf(file, "%d %d %d\n", matriz->linha, matriz->coluna, 1);
-
-        for (int i = 0; i < matriz->linha; i++) {
-            for (int j = 0; j < matriz->coluna; j++) {
-                fprintf(file, "%2d ", matriz->mat[i][j]);
-            }
-
-            fprintf(file, "\n");
-        }
-    }
-    fclose(file);
-}
-
-void leitura(readMatriz *matriz, int t) {
-    FILE *file = fopen("dataset/input.data", "r");
-
-    char *result, linha[100];
-
-    int contLinha = 0;
-    int contMatrizAtual = 1;
-
-    int convert, coluna = 0;
-
-    int aux = 0;
-    int aux2 = 0;
-
-    matriz->matrizAtual = 1;
-
-    if (file == NULL) {
-        printf("Nao foi possivel abrir o arquivo\n");
-    } else {
-        while (!feof(file)) {
-            result = fgets(linha, sizeof(linha), file);
-
-            if (result && aux == 1) {
-                if (strlen(linha) > 1) {
-                    const char sep[] = " ";
-                    char *tokens;
-                    coluna = 0;
-
-                    tokens = strtok(linha, sep);
-
-                    while (tokens != NULL) {
-                        if (strcmp(tokens, "#") == 0) convert = -1;
-                        else if (strcmp(tokens, "*") == 0) convert = -2;
-                        else convert = atoi(tokens);
-
-                        matriz->mat[contLinha][coluna++] = convert;
-                        tokens = strtok(NULL, sep);
-                    }
-                    contLinha++;
-                } else {
-                    contLinha = 0;
-
-                    checkpoint(matriz);
-                    matriz->matrizAtual++;
-                }
-            }
-            aux = 1;
-        }
-    }
-    fclose(file);
-}
-
-void outraLeitura(readMatriz *matriz, int t) {
-    FILE *file = fopen("dataset/input.data", "r");
-
-    char *result, linha[100];
-
-    int contLinha = 0;
-    int contMatrizAtual = 1;
-
-    int convert, coluna = 0;
-
-    int aux = 0;
-    int aux2 = 0;
-
-    matriz->matrizAtual = 1;
-
-    if (file == NULL) {
-        printf("Nao foi possivel abrir o arquivo\n");
-    } else {
-        while (!feof(file)) {
-            result = fgets(linha, sizeof(linha), file);
-
-            if (result && aux == 1) {
-                if (strlen(linha) > 1) {
-                    const char sep[] = " ";
-                    char *tokens;
-                    coluna = 0;
-
-                    tokens = strtok(linha, sep);
-
-                    while (tokens != NULL) {
-                        if (strcmp(tokens, "#") == 0) convert = -1;
-                        else if (strcmp(tokens, "*") == 0) convert = -2;
-                        else convert = atoi(tokens);
-
-                        matriz->mat[contLinha][coluna++] = convert;
-                        tokens = strtok(NULL, sep);
-                    }
-                    contLinha++;
-                } else {
-                    contLinha = 0;
-
-                    checkpoint(matriz);
-                    matriz->matrizAtual++;
-                }
-            }
-            aux = 1;
-        }
-    }
-    fclose(file);
-}
-
-
-void tamanho(int *linha, int *coluna, int *total) {
-    FILE *file = fopen("dataset/input.data", "r");
-    int cont = 0;
-    char *result, linha_str[100];
-
-    if (file == NULL) {
-        printf("Nao foi possivel abrir o arquivo\n");
-    } else {
-        while (!feof(file)) {
-            result = fgets(linha_str, sizeof(linha_str), file);
-
-            if (result) {
-                const char sep[] = " ";
-                char *tokens;
-
-                tokens = strtok(linha_str, sep);
-
-                while (tokens != NULL) {
-                    if (cont == 0) {
-                        (*linha) = atoi(tokens);
-                    } else if (cont == 1) {
-                        (*coluna) = atoi(tokens);
-                    } else if (cont == 2) {
-                        (*total) = atoi(tokens);
-                    }
-
-                    tokens = strtok(NULL, sep);
-
-                    cont++;
-                }
-            }
-        }
-    }
-    fclose(file);
-}
+void checkpoint(readMatriz *matriz);
+void leitura(readMatriz *matriz, int t, copiaCheckpoint *copia);
+void readCheckpoint(readMatriz *matriz);
+void tamanho(int *linha, int *coluna, int *total);
+void output(int x, int y, readMatriz*matriz);
+void relatorio(infoMenino*menino);
+void fazCopia(copiaCheckpoint *matriz);
+void readMatrizPercorrida(int *caminhoPercorrido, int *caminhoNaoPercorrido, int quantMatriz);
+void readCopiaCheckpoint(copiaCheckpoint *matriz);
 
 #endif
