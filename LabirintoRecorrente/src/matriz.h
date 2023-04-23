@@ -3,11 +3,12 @@
 
 #include <stdio.h>
 
+//letra q representa quantidade
 typedef struct readMatriz readMatriz;
 
 struct readMatriz{
     int linha, coluna;
-    int q; //letra q representa quantidade
+    int q; 
     int **mat;
     int matrizAtual;
 };
@@ -16,7 +17,7 @@ typedef struct copiaCheckpoint copiaCheckpoint;
 
 struct copiaCheckpoint{
     int linha, coluna;
-    int q; //letra q representa quantidade
+    int q; 
     int **mat;
     int matrizAtual;
 };
