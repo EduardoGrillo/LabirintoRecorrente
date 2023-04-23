@@ -1,5 +1,8 @@
 #include "readFile.h"
 
+//Função responsável por fazer a cópia da matriz do checkpoint, mantendo as paredes e os perigos existentes.  
+//Inicialmente, para indicar se o garoto não passou pelo caminho, o valor será igual a zero.
+//Caso tenha passado pelo caminho, o valor será igual a 1 e, então, mudará o arquivo cópia.
 void fazCopia(copiaCheckpoint *matriz) {
     char *p = (char *)malloc(sizeof(char) * 100);
     sprintf(p, "dataset/copia/copia_%d.data", matriz->matrizAtual);
@@ -22,9 +25,10 @@ void fazCopia(copiaCheckpoint *matriz) {
     fclose(file);
 }
 
+//Função responsável por fazer o backup do arquivo das matrizes originais (input.data).
 void checkpoint(readMatriz *matriz) {
     //o arquivo gerado para o checkpoint chama-se output_1.data
-
+    
     char *p = (char *)malloc(sizeof(char) * 100);
     sprintf(p, "dataset/checkpoint/checkpoint_%d.data", matriz->matrizAtual);
 
@@ -46,7 +50,9 @@ void checkpoint(readMatriz *matriz) {
     fclose(file);
 }
 
-
+//Função responsável para fazer a leitura do arquivo original (input.data).
+//Também faz a conversão dos símbolos de parede (#) e perigo (*) para -1 e -2, respectivamente.
+//Essa conversão será exibida no arquivo do checkpoint, arquivo do qual será editado sempre que o algoritmo for compilado.
 void leitura(readMatriz *matriz, int t, copiaCheckpoint *copia) {
     FILE *file = fopen("dataset/input.data", "r");
     
@@ -111,6 +117,8 @@ void leitura(readMatriz *matriz, int t, copiaCheckpoint *copia) {
     fclose(file);
 }
 
+//Função responsável por fazer o checkpoint da matriz original, 
+//na qual irá ser criado três arquivos, cada um desses arquivos contendo a alteração da matriz original e salvando-a.
 void readCheckpoint(readMatriz *matriz) {
     char *p = (char *)malloc(sizeof(char) * 100);
     sprintf(p, "dataset/checkpoint/checkpoint_%d.data", matriz->matrizAtual);
@@ -156,6 +164,7 @@ void readCheckpoint(readMatriz *matriz) {
     fclose(file);
 }
 
+// Função responsável por fazer a leitura da cópia do checkpoint. Ou seja, irá abrir o arquivo contendo todas as informações copiadas.
 void readCopiaCheckpoint(copiaCheckpoint *matriz) {
     char *p = (char *)malloc(sizeof(char) * 100);
     sprintf(p, "dataset/copia/copia_%d.data", matriz->matrizAtual);
@@ -201,6 +210,7 @@ void readCopiaCheckpoint(copiaCheckpoint *matriz) {
     fclose(file);
 }
 
+//Função responsável para definir o tamanho da matriz.
 void tamanho(int *linha, int *coluna, int *total) {
     FILE *file = fopen("dataset/input.data", "r");
     int cont = 0;
@@ -237,6 +247,7 @@ void tamanho(int *linha, int *coluna, int *total) {
     fclose(file);
 }
 
+// Função responsável para a criação de outro arquivo na qual mostrará o caminho impresso percorrido pelo menino.
 void output(int x, int y, readMatriz*matriz){
     FILE *file = fopen("dataset/output.data", "a");
 
@@ -268,6 +279,7 @@ void output(int x, int y, readMatriz*matriz){
     fclose(file);
 }
 
+// Função responsável apenas para mostrar as informações do menino, na qual ao final do processo, será impresso o resultado de todo o caminho percorrido.
 void relatorio(infoMenino*menino){
     FILE *file = fopen("dataset/relatorio.data", "w");
 
@@ -294,6 +306,9 @@ void relatorio(infoMenino*menino){
     fclose(file);
 }
 
+//Função responsável para mostrar se o garoto percorreu o caminho ou não. 
+//Para tal, foi criada uma condição para verificar, onde se o convert (variável encarregada da tokenização) for igual a zero, então o caminho não foi percorrido. 
+//Se o convert for igual a 1, o caminho será percorrido.
 void readMatrizPercorrida(int *caminhoPercorrido, int *caminhoNaoPercorrido, int quantMatriz) {
     for(int i = 0; i < quantMatriz; i++){
         char *p = (char *)malloc(sizeof(char) * 100);
