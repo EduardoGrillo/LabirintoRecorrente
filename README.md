@@ -8,6 +8,10 @@ O objetivo do trabalho é fazer um jogo na qual consiste que um personagem perco
 # O Algoritmo
 ```INPUT```
 
+- Introdução 
+
+- Lógica
+
 ```OUTPUT```
 
 # Custo Computacional
