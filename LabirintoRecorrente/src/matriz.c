@@ -1,5 +1,6 @@
 #include "matriz.h"
 
+//Impressão da matriz
 void printMatriz(readMatriz*matriz, int x, int y){
     printf("matriz atual: %d\n", matriz->matrizAtual);
     printf("coordenadas: [%d] x [%d]\n", x, y);
