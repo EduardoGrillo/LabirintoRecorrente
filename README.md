@@ -14,6 +14,9 @@ O algoritmo consiste na leitura de três matrizes que formam o labirinto que ser
 
 Além das regras propostas pelo trabalho, foi incrementado outras regras, das quais são elas: (a) existem um portal do lado esquerdo e direito; (b) o loop só vai parar quando o personagem morrer; (c) o jogo vai acabar quando o personagem percorrer todas as matrizes; (c) o personagem só avançará para a próxima matriz quando avançar pelos portais ou quando bater na parede, que será jogado automaticamente para outra matriz.
 
+- Lógica
+
+
 </p>
 
 <p align="center">
@@ -24,11 +27,23 @@ Além das regras propostas pelo trabalho, foi incrementado outras regras, das qu
 
 </p>
 
-- Lógica
-
-
 
 ```OUTPUT```
+
+<center>
+<table>
+   <tr>
+      <td>Input</td>
+      <td>Checkpoint</td>
+      <td>Output</td>
+   </tr>
+   <tr>
+      <td><img src=""/></td>
+      <td><img src=""/></td>
+      <td><img src="" /></td>
+   </tr>
+</table>
+</center> 
 
 # Custo Computacional
 
