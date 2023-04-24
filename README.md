@@ -22,8 +22,8 @@ Em resumo, o código lê um arquivo de entrada contendo uma matriz e salva o est
 <center>
 <table>
    <tr>
-      <td>Output</td>
-      <td>Relatório</td>
+      <td>Input</td>
+      <td>Checkpoint</td>
    </tr>
    <tr>
       <td><img src="images/input.png"/></td>
