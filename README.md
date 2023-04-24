@@ -6,6 +6,7 @@ O objetivo do trabalho é fazer um jogo na qual consiste que um personagem perco
 - Possui caminhos chamados de perigo, representados por ```*```, que são locais onde o personagem perde uma vida cada vez que passa por ele.
 
 # O Algoritmo
+
 ```INPUT```
 
 A proposta do trabalho consiste na leitura de três matrizes que formam o labirinto que será percorrido. A ideia principal é de que o personagem consiga todas as matrizes até que o jogo acabe. 
@@ -16,37 +17,45 @@ A função leitura é responsável pela leitura do arquivo de entrada e pela cri
 
 Em resumo, o código lê um arquivo de entrada contendo uma matriz e salva o estado atual da matriz em um arquivo de checkpoint. A partir do arquivo de checkpoint, o programa cria uma cópia da matriz para salvar o caminho percorrido pelo usuário, caso exista.
 
-Para fazer a movimentação do menino, foi utilizada uma estrutura de switch, onde cada case, de 1 até o 8, representa um lado para qual ele irá de mover, de forma randômica. 
-
-- ```Case 1:``` mover para direita
-- ```Case 2:``` mover para esquerda
-- ```Case 3:``` mover para baixo
-- ```Case 4:``` mover para cima
-- ```Case 5:``` mover para diagonal superior esquerda
-- ```Case 6:``` mover para diagonal superior direita
-- ```Case 7:``` mover para diagonal inferior esquerda
-- ```Case 8:``` mover para diagonal inferior direita
-
-Com a lógica das paredes e perigos, existem duas condições para fazer essa verificação. A primeira condição serve para verificar se existe uma parede no local (-1), verificando se a variável auxiliar é igual à variável responsável pela linha(x), caso essa verificação seja correspondida, o menino irá avançar para a próxima matriz. Já a segunda condição, serve para verificar se existe um perigo no local (-2), caso o menino passe por esse local, sua vida é decrementada e ele avançará para a próxima coordenada dentro da mesma matriz.
-
-
-```OUTPUT```
-
-Ao final do algoritmo, será impresso os resultados através dos arquivos que foram criados ao longo da compilação da matriz percorrida. Para cada resultado, será criado um arquivo, dentre eles estarão o ```output.data```, responsável por imprimir todas as matrizes percorridas pelo menino, o ```relatorio.data```, responsável por imprimir a quantidade de vida do menino, os itens coletados, os perigos enfrentados, a quantidade de matrizes, quantos caminhos foram percorridos e quantos não foram percorridos.
-
-- Exemplo de execução
+```Exemplo de INPUT```
 
 <center>
 <table>
    <tr>
-      <td>Input</td>
-      <td>Checkpoint</td>
       <td>Output</td>
       <td>Relatório</td>
    </tr>
    <tr>
       <td><img src="images/input.png"/></td>
       <td><img src="images/checkpoint.png"/></td>
+   </tr>
+</table>
+</center> 
+
+O personagem ```(@)``` é representado pelas variáveis ```x_atual``` e ```y_atual```, que representam a posição atual do personagem na matriz do jogo. O movimento do personagem é feito aleatoriamente em uma das oito direções possíveis, representadas pela variável posicao, que é gerada pela função ```rand()```.
+
+A função ```Movimentar()``` é responsável por fazer o movimento do personagem de acordo com a direção gerada pela função ```rand()```. Ela recebe como parâmetros as coordenadas atuais do personagem ```(x e y)```, a direção gerada pela função ```rand() (posicao)```, as dimensões da matriz do jogo (linha e coluna) e um ponteiro para a variável teleporte. A função verifica a direção gerada e faz o movimento do personagem de acordo com a direção escolhida. Se o movimento tentar levar o personagem para fora da matriz, o ponteiro teleporte é setado para um valor diferente de zero, indicando que o personagem deve ser teleportado para a outra extremidade da matriz.
+
+Dentro do loop infinito que faz o movimento do personagem e atualiza as informações do jogo enquanto o personagem estiver vivo, a função gera uma nova direção aleatória para o movimento do personagem. As coordenadas atuais do personagem são armazenadas nas variáveis ```x_aux``` e ```y_aux``` para que seja possível verificar se houve uma mudança de posição. Se o movimento não levar o personagem para fora da matriz e não levar o personagem para uma posição com um parede ```(-1)``` ou um perigo ```(-2)```, as informações do jogo são atualizadas. Se a posição atual do personagem contiver um item ```(> 0)```, o item é coletado e a sacola do personagem é incrementada. Se a sacola do personagem chegar a quatro itens, a vida do personagem é incrementada se ela for menor do que dez e a sacola é esvaziada.
+
+Se o movimento do personagem levar para uma posição com um perigo ```(-2)```, a vida do personagem é decrementada, a sacola é esvaziada e a variável perigo é incrementada. Se a vida do personagem chegar a zero, a variável status é setada para zero, indicando que o personagem morreu e a função retorna.
+
+Se o movimento do personagem levar para uma posição com um parede ```(-1)```, as coordenadas do personagem são revertidas para as coordenadas originais armazenadas em ```x_aux``` e ```y_aux```. Se o movimento do personagem levar para uma posição com uma cópia de um checkpoint anterior, a matriz do jogo é atualizada para a matriz armazenada na cópia do checkpoint, e a posição atual do personagem é atualizada para a posição do checkpoint
+
+
+```OUTPUT```
+
+Ao final do algoritmo, será impresso os resultados através dos arquivos que foram criados ao longo da compilação da matriz percorrida. Para cada resultado, será criado um arquivo, dentre eles estarão o ```output.data```, responsável por imprimir todas as matrizes percorridas pelo menino, o ```relatorio.data```, responsável por imprimir a quantidade de vida do menino, os itens coletados, os perigos enfrentados, a quantidade de matrizes, quantos caminhos foram percorridos e quantos não foram percorridos.
+
+```Exemplo de OUTPUT```
+
+<center>
+<table>
+   <tr>
+      <td>Output</td>
+      <td>Relatório</td>
+   </tr>
+   <tr>
       <td><img src="images/output.png" /></td>
       <td><img src="images/relatorio.png" /></td>
    </tr>
